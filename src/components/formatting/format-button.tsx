@@ -2,8 +2,8 @@ import { COPY_MESSAGES } from "@/lib/constants.ts";
 import { Button } from "@mui/material";
 import { useAtomValue } from "jotai/react";
 import toast from "react-hot-toast";
-import { copyFormattedCommit, validateTitle } from "../lib/utils.ts";
-import { $commitType, $description, $title } from "../store/atoms.ts";
+import { copyFormattedCommit, validateTitle } from "../../lib/utils.ts";
+import { $commitType, $description, $title } from "../../store/atoms.ts";
 
 const FormatButton = () => {
     const title = useAtomValue($title);

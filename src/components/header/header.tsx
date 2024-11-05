@@ -1,5 +1,5 @@
-import GithubLink from "@/components/github-link.tsx";
-import InfoModal from "@/components/info-modal.tsx";
+import GithubLink from "@/components/header/github-link.tsx";
+import InfoModal from "@/components/header/info-modal.tsx";
 
 const Header = () => (
     <header>

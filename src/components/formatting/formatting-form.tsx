@@ -1,7 +1,7 @@
-import CommitTypeSelector from "@/components/commit-type-selector.tsx";
-import DescriptionInput from "@/components/description-input.tsx";
-import FormatButton from "@/components/format-button.tsx";
-import TitleInput from "@/components/title-input.tsx";
+import CommitTypeSelector from "@/components/formatting/commit-type-selector.tsx";
+import DescriptionInput from "@/components/formatting/description-input.tsx";
+import FormatButton from "@/components/formatting/format-button.tsx";
+import TitleInput from "@/components/formatting/title-input.tsx";
 
 const FormattingForm = () => {
     return (

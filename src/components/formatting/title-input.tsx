@@ -1,8 +1,8 @@
+import { TITLE_MAX_LENGTH } from "@/lib/constants.ts";
 import { validateTitle } from "@/lib/utils.ts";
+import { $commitType, $title } from "@/store/atoms.ts";
 import TextField from "@mui/material/TextField";
 import { useAtom, useAtomValue } from "jotai/react";
-import { TITLE_MAX_LENGTH } from "../lib/constants.ts";
-import { $commitType, $title } from "../store/atoms.ts";
 
 const TitleInput = () => {
     const [title, setTitle] = useAtom($title);

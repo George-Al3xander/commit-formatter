@@ -8,7 +8,7 @@ import {
     SelectChangeEvent,
 } from "@mui/material";
 import { useAtom } from "jotai/react";
-import { $commitType } from "../store/atoms.ts";
+import { $commitType } from "../../store/atoms.ts";
 
 const CommitTypeSelector = () => {
     const [commitType, setCommitType] = useAtom($commitType);

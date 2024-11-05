@@ -1,6 +1,6 @@
 import TextField from "@mui/material/TextField";
 import { useAtom } from "jotai/react";
-import { $description } from "../store/atoms.ts";
+import { $description } from "../../store/atoms.ts";
 
 const DescriptionInput = () => {
     const [description, setDescription] = useAtom($description);
