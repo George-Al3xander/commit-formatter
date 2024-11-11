@@ -1,35 +1,24 @@
 import { COMMIT_TYPES } from "@/lib/constants.ts";
-import { TCommitType } from "@/types/types.ts";
-import {
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select,
-    SelectChangeEvent,
-} from "@mui/material";
-import { useAtom } from "jotai/react";
-import { $commitType } from "../../store/atoms.ts";
+import { TCommitSchema } from "@/lib/zod/schemas.ts";
+import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { UseFormRegister } from "react-hook-form";
 
-const CommitTypeSelector = () => {
-    const [commitType, setCommitType] = useAtom($commitType);
-
-    const handleChange = (event: SelectChangeEvent) => {
-        setCommitType(event.target.value as TCommitType);
-    };
-
+const CommitTypeSelector = ({
+    register,
+}: {
+    register: UseFormRegister<TCommitSchema>;
+}) => {
     return (
         <FormControl className="commit-type-selector">
             <InputLabel id="commit-type">Commit type</InputLabel>
             <Select
                 labelId="commit-type"
                 id="demo-simple-select"
-                value={commitType || "none"}
                 label={"Conv. commit"}
-                onChange={handleChange}
+                defaultValue={"none"}
+                {...register("commitType")}
             >
-                <MenuItem selected value={"none"}>
-                    none
-                </MenuItem>
+                <MenuItem value={"none"}>none</MenuItem>
                 {COMMIT_TYPES.map((type) => (
                     <MenuItem key={type} value={type}>
                         {type}

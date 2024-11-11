@@ -4,6 +4,9 @@ const config: Config = {
     coverageProvider: "v8",
     testEnvironment: "jest-environment-jsdom",
     preset: "ts-jest",
+    moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1",
+    },
     transform: {
         "^.+\\.tsx?$": [
             "ts-jest",
@@ -11,7 +14,7 @@ const config: Config = {
                 diagnostics: {
                     ignoreCodes: ["TS151001"],
                 },
-                tsconfig: "./tsconfig.json",
+                tsconfig: "./tsconfig.app.json",
             },
         ],
         "^.+\\.ts?$": [
@@ -20,7 +23,7 @@ const config: Config = {
                 diagnostics: {
                     ignoreCodes: ["TS151001"],
                 },
-                tsconfig: "./tsconfig.json",
+                tsconfig: "./tsconfig.node.json",
             },
         ],
     },

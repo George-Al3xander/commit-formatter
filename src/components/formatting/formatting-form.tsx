@@ -1,19 +1,37 @@
 import CommitTypeSelector from "@/components/formatting/commit-type-selector.tsx";
-import DescriptionInput from "@/components/formatting/description-input.tsx";
-import FormatButton from "@/components/formatting/format-button.tsx";
-import TitleInput from "@/components/formatting/title-input.tsx";
+import TextInput from "@/components/formatting/text-input.tsx";
+import useFormattingForm from "@/hooks/use-formatting-form.ts";
+import { Button } from "@mui/material";
 
 const FormattingForm = () => {
+    const { register, errors, isAnyError, onSubmit } = useFormattingForm();
     return (
-        <form className="app-container" onSubmit={(e) => e.preventDefault()}>
+        <form className="app-container" onSubmit={onSubmit}>
             <fieldset className="title-container">
-                <CommitTypeSelector />
-                <TitleInput />
+                <CommitTypeSelector register={register} />
+                <TextInput
+                    commitPart={"title"}
+                    register={register}
+                    errors={errors}
+                />
             </fieldset>
             <fieldset>
-                <DescriptionInput />
+                <TextInput
+                    commitPart={"description"}
+                    register={register}
+                    errors={errors}
+                    rows={5}
+                    multiline
+                />
             </fieldset>
-            <FormatButton />
+            <Button
+                disabled={isAnyError}
+                type="submit"
+                variant="contained"
+                color="info"
+            >
+                Copy formatted commit
+            </Button>
         </form>
     );
 };

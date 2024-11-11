@@ -1,7 +1,10 @@
-import { TCommitType } from "../types/types.ts";
+import { TCommitSchema } from "@/lib/zod/schemas.ts";
+import { TCommitType } from "@/types/types.ts";
+import { SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
 import {
+    COPY_MESSAGES,
     DESCRIPTION_MAX_LENGTH,
-    TITLE_LENGTH_ERR_MESSAGES,
     TITLE_MAX_LENGTH,
 } from "./constants.ts";
 
@@ -23,66 +26,60 @@ export const formatLines = (words: string[]) => {
     return lines;
 };
 
-export const formatCommit = ({
-    title,
-    description,
-    commitType,
-}: {
-    title: string;
-    description?: string;
-    commitType?: TCommitType;
-}): string => {
-    const formattedTitle = (
-        commitType ? `${commitType}: ${title.trim()}` : title.trim()
-    ).toLowerCase();
-
-    if (!description || !/\S/.test(description)) return formattedTitle;
-
-    if (description.length <= DESCRIPTION_MAX_LENGTH)
-        return formattedTitle + "\n\n" + description;
-
-    const words = description.split(" ");
-
-    const formattedDescription = formatLines(words).join("\n");
-
-    return formattedTitle + "\n\n" + formattedDescription;
-};
-
-export const copyFormattedCommit = async (
-    params: Parameters<typeof formatCommit>[number],
-    callbacks?: {
-        success: () => void;
-        error: () => void;
-    },
-) => {
-    const text = formatCommit(params);
+export const copyToClipboard = async (text: string) => {
     try {
         await navigator.clipboard.writeText(text);
-        if (callbacks) callbacks.success();
+        toast.success(COPY_MESSAGES.success);
     } catch (e) {
         console.error(e);
-        if (callbacks) callbacks.error();
+        toast.error(COPY_MESSAGES.error);
     }
 };
 
-export const validateTitle = ({
+export const isTitleValid = ({
     title,
     commitType,
 }: {
     title: string;
-    commitType: TCommitType | "none" | undefined;
-}) => {
+    commitType?: TCommitType | "none";
+}): boolean => {
     const fullTitle =
         commitType && commitType != "none" ? `${commitType}: ${title}` : title;
 
-    const isError = Boolean(
-        title.length < 1 || fullTitle.length > TITLE_MAX_LENGTH,
-    );
+    return fullTitle.length <= TITLE_MAX_LENGTH;
+};
 
-    const errMessage =
-        title.length < 1
-            ? TITLE_LENGTH_ERR_MESSAGES.min
-            : TITLE_LENGTH_ERR_MESSAGES.max;
+export const transformDescription = (
+    str: string | undefined,
+): string | undefined => {
+    if (str) {
+        const words = str.replace(/\s\s+/g, " ").split(" ");
+        const lines = formatLines(words);
 
-    return { fullTitle, isError, errMessage };
+        return lines.join("\n");
+    }
+};
+
+export const transformTitle = (title: string): string => {
+    if (title.length > 0) {
+        return title.toLowerCase().replace(/\s\s+/g, " ").trim();
+    }
+
+    return title;
+};
+
+export const copyCommitToClipboard: SubmitHandler<TCommitSchema> = async ({
+    title,
+    description,
+    commitType,
+}) => {
+    let commit: string = title;
+
+    if (commitType) {
+        commit = `${commitType}: ${title}`;
+    }
+    if (description) {
+        commit = commit + "\n\n" + description;
+    }
+    await copyToClipboard(commit);
 };

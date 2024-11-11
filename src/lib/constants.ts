@@ -1,3 +1,5 @@
+import { TextInputProps } from "@/types/types";
+
 export const TITLE_MAX_LENGTH = 50;
 export const DESCRIPTION_MAX_LENGTH = 72;
 export const COMMIT_TYPES = [
@@ -16,7 +18,7 @@ export const COMMIT_TYPES = [
 
 export const TITLE_LENGTH_ERR_MESSAGES = {
     min: "Title is required and must be at least 1 character long.",
-    max: `Maximum title length is ${TITLE_MAX_LENGTH} characters`,
+    max: `Title must be ${TITLE_MAX_LENGTH} characters or fewer. If a commit type is selected, this includes the commit type, colon, and space (e.g., 'feat: add new feature').`,
 };
 
 export const COPY_MESSAGES = {
@@ -65,3 +67,10 @@ export const INSTRUCTIONS: {
 
 export const GITHUB_REPO_LINK =
     "https://github.com/George-Al3xander/commit-formatter";
+
+export const TEXT_INPUT_PLACEHOLDERS: {
+    [key in TextInputProps["commitPart"]]: string;
+} = {
+    title: "Provide a short commit title (e.g., 'update readme')",
+    description: "Add more context for this commit (optional)",
+};
