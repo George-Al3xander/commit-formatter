@@ -1,6 +1,7 @@
 import { COMMIT_TYPES, TITLE_LENGTH_ERR_MESSAGES } from "@/lib/constants.ts";
 import {
     isTitleValid,
+    transformCommitType,
     transformDescription,
     transformTitle,
 } from "@/lib/utils.ts";
@@ -17,7 +18,11 @@ export const CommitSchema = z
             .optional()
             .or(z.literal(""))
             .transform(transformDescription),
-        commitType: z.enum(COMMIT_TYPES).optional().or(z.literal("none")),
+        commitType: z
+            .enum(COMMIT_TYPES)
+            .optional()
+            .or(z.literal("none"))
+            .transform(transformCommitType),
     })
     .refine(isTitleValid, {
         message: TITLE_LENGTH_ERR_MESSAGES.max,

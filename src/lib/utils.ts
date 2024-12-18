@@ -3,6 +3,7 @@ import { TCommitType } from "@/types/types.ts";
 import { SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import {
+    COMMIT_TYPES,
     COPY_MESSAGES,
     DESCRIPTION_MAX_LENGTH,
     TITLE_MAX_LENGTH,
@@ -41,7 +42,7 @@ export const isTitleValid = ({
     commitType,
 }: {
     title: string;
-    commitType?: TCommitType | "none";
+    commitType?: TCommitType | "none" | undefined;
 }): boolean => {
     const fullTitle =
         commitType && commitType != "none" ? `${commitType}: ${title}` : title;
@@ -50,7 +51,7 @@ export const isTitleValid = ({
 };
 
 export const transformDescription = (
-    str: string | undefined,
+    str?: string | undefined,
 ): string | undefined => {
     if (str) {
         const words = str.replace(/\s\s+/g, " ").split(" ");
@@ -82,4 +83,14 @@ export const copyCommitToClipboard: SubmitHandler<TCommitSchema> = async ({
         commit = commit + "\n\n" + description;
     }
     await copyToClipboard(commit);
+};
+
+export const transformCommitType = (
+    commitType: TCommitType | "none" | undefined,
+): TCommitType | undefined => {
+    if (
+        commitType &&
+        (COMMIT_TYPES as unknown as string[]).includes(commitType)
+    )
+        return commitType as TCommitType;
 };
