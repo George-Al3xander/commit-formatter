@@ -9,6 +9,7 @@
         "lint": "eslint ./src/**",
         "format": "pnpm exec prettier --write",
         "test": "jest",
+        "coverage": "jest --coverage",
         "preview": "vite preview"
     },
     "dependencies": {

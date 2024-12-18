@@ -4,6 +4,12 @@ const config: Config = {
     coverageProvider: "v8",
     testEnvironment: "jest-environment-jsdom",
     preset: "ts-jest",
+    coverageThreshold: {
+        global: {
+            lines: 90,
+            statements: 90,
+        },
+    },
     moduleNameMapper: {
         "^@/(.*)$": "<rootDir>/src/$1",
     },
