@@ -13,7 +13,6 @@ const useFormattingForm = () => {
         defaultValues: {
             title: "",
             description: "",
-            commitType: "none",
         },
     });
 
