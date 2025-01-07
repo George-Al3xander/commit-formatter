@@ -2,11 +2,13 @@ import {
     commit_description,
     formated_description,
 } from "@/mocks/mock-commit.ts";
+import { TCommitType } from "@/types/models/commit.ts";
 import {
     transformCommitType,
     transformDescription,
     transformTitle,
     transformToAbbreviation,
+    transformToCommit,
 } from "@/utils/helpers/transformString.ts";
 
 describe("Transform string", () => {
@@ -41,6 +43,46 @@ describe("Transform string", () => {
             expect(transformToAbbreviation("awesome code")).toBe("AC");
             expect(transformToAbbreviation("awesome")).toBe("A");
             expect(transformToAbbreviation("New      word")).toBe("NW");
+        });
+    });
+
+    describe("commit", () => {
+        const commitTitle = "title";
+        const commitType: TCommitType = "feat";
+        it("should transform to commit: full commit", () => {
+            expect(
+                transformToCommit({
+                    title: commitTitle,
+                    commitType,
+                    description: formated_description,
+                }),
+            ).toBe(
+                `${commitType}: ${commitTitle}` + "\n\n" + formated_description,
+            );
+        });
+
+        it("should transform to commit: without commit type", () => {
+            expect(
+                transformToCommit({
+                    title: commitTitle,
+                    description: formated_description,
+                }),
+            ).toBe(commitTitle + "\n\n" + formated_description);
+        });
+
+        it("should transform to commit: without description", () => {
+            expect(
+                transformToCommit({
+                    title: commitTitle,
+                }),
+            ).toBe(commitTitle);
+
+            expect(
+                transformToCommit({
+                    title: commitTitle,
+                    commitType,
+                }),
+            ).toBe(`${commitType}: ${commitTitle}`);
         });
     });
 });

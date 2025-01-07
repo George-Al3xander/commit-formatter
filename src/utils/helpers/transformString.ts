@@ -1,4 +1,5 @@
 import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
+import { TCommitSchema } from "@/services/zod.ts";
 import { TCommitType } from "@/types/models/commit.ts";
 import { formatLines } from "@/utils/helpers/formatString.ts";
 
@@ -36,4 +37,21 @@ export const transformCommitType = (
         (FORMATTING_CONSTANTS.types as unknown as string[]).includes(commitType)
     )
         return commitType as TCommitType;
+};
+
+export const transformToCommit = ({
+    title,
+    description,
+    commitType,
+}: TCommitSchema): string => {
+    let commit: string = title;
+
+    if (commitType) {
+        commit = `${commitType}: ${title}`;
+    }
+    if (description) {
+        commit = commit + "\n\n" + description;
+    }
+
+    return commit;
 };
