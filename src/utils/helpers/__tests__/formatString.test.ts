@@ -1,4 +1,4 @@
-import { formatAbbreviation } from "@/utils/formatString.ts";
+import { formatAbbreviation } from "@/utils/helpers/formatString.ts";
 
 describe("FormatString", () => {
     it("should format abbreviation", () => {

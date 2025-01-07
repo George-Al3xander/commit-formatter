@@ -41,3 +41,8 @@ export const INSTRUCTION_ITEMS: {
             "Once complete, click the button at the bottom to copy the formatted commit message to your clipboard!",
     },
 ];
+
+export const GITHUB_REPO_LINK =
+    "https://github.com/George-Al3xander/commit-formatter";
+
+export const WEBSITE_TITLE = "Commit Formatter";
