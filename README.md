@@ -1,4 +1,4 @@
-# Commit Formatter Web App
+# Commit Formatter Web Page
 
 A simple web application designed to help users format commit messages according to the 50/72 rule, with inputs for the commit title, description, and an optional conventional commit type (e.g., feat, fix, docs). The app automatically formats the description to 72 characters per line, making it easy to follow best practices for commit messages.
 
