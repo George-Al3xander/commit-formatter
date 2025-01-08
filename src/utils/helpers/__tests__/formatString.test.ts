@@ -3,9 +3,15 @@ import {
     commit_description,
     formated_description,
 } from "@/mocks/mock-commit.ts";
-import { formatLines } from "@/utils/helpers/formatString.ts";
+import { capitalizeString, formatLines } from "@/utils/helpers/formatString.ts";
 
-describe("Format string", () => {});
+describe("Format string", () => {
+    it("should capitalize string", () => {
+        expect(capitalizeString("hello world")).toBe("Hello world");
+        expect(capitalizeString("h")).toBe("H");
+        expect(capitalizeString("hh")).toBe("Hh");
+    });
+});
 
 describe("Format lines", () => {
     it("should format lines", () => {

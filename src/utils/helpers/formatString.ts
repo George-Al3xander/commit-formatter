@@ -17,3 +17,9 @@ export const formatLines = (words: string[]) => {
 
     return lines;
 };
+
+export const capitalizeString = <T extends string>(str: T): T => {
+    if (str.length > 1) return (str[0].toUpperCase() + str.slice(1)) as T;
+
+    return str.toUpperCase() as T;
+};
