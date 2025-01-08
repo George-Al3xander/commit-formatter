@@ -1,11 +1,11 @@
-import { IconButton as IconButtonMUI } from "@mui/material";
-import IconType from "@mui/material/Icon";
+import { IconButton as IconButtonMUI, SvgIcon } from "@mui/material";
+
 import { FC, MouseEvent } from "react";
 
 type Props = {
     srText: string;
-    icon: typeof IconType;
-    onClick: (
+    icon: typeof SvgIcon;
+    onClick?: (
         e: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>,
     ) => void;
 };
