@@ -46,3 +46,8 @@ export const GITHUB_REPO_LINK =
     "https://github.com/George-Al3xander/commit-formatter";
 
 export const WEBSITE_TITLE = "Commit Formatter";
+
+export const COPY_MESSAGES = {
+    success: "Successfully copied to clipboard!",
+    error: "Copy failed. Please check your content and try again",
+};

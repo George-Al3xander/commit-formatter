@@ -1,5 +1,6 @@
-import { copyCommitToClipboard } from "@/lib/utils.ts";
-import { CommitSchema, TCommitSchema } from "@/lib/zod/schemas.ts";
+import { CommitSchema, TCommitSchema } from "@/services/zod.ts";
+import { copyToClipboard } from "@/utils/helpers/clipboard.ts";
+import { transformToCommit } from "@/utils/helpers/transformString.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -16,7 +17,9 @@ const useFormattingForm = () => {
         },
     });
 
-    const onSubmit = handleSubmit(copyCommitToClipboard);
+    const onSubmit = handleSubmit((val) =>
+        copyToClipboard(transformToCommit(val)),
+    );
     const isAnyError = Boolean(Object.keys(errors).length > 0);
     return {
         register,
