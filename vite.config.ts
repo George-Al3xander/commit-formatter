@@ -15,6 +15,9 @@ export default defineConfig({
             input: {
                 app: "src/app/pages/index.html",
             },
+            output: {
+                dir: "./dist",
+            },
         },
     },
 });
