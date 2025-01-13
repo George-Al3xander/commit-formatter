@@ -7,34 +7,49 @@ import {
     Select,
     SelectProps,
 } from "@mui/material";
-import { FC, useId } from "react";
+import { useId } from "react";
+import { Control, Controller, Path } from "react-hook-form";
 
-type Props = {
+type Props<T extends object> = {
     formControlProps?: FormControlProps;
     labelText: string;
     selectProps?: SelectProps;
     selectOptions: string[];
     selectOptionProps?: MenuItemProps;
+    control: Control<T>;
+    name: Path<T>;
 };
 
-export const SelectMenu: FC<Props> = ({
+export const SelectMenu = <T extends object>({
     formControlProps,
     labelText,
     selectProps,
+    control,
     selectOptions,
     selectOptionProps,
-}) => {
+    name,
+}: Props<T>) => {
     const labelId = useId();
     return (
         <FormControl {...formControlProps}>
             <InputLabel id={labelId}>{labelText}</InputLabel>
-            <Select {...selectProps} labelId={labelId}>
-                {selectOptions.map((val) => (
-                    <MenuItem {...selectOptionProps} key={val} value={val}>
-                        {val}
-                    </MenuItem>
-                ))}
-            </Select>
+            <Controller
+                control={control}
+                name={name}
+                render={({ field }) => (
+                    <Select {...selectProps} {...field} labelId={labelId}>
+                        {selectOptions.map((val) => (
+                            <MenuItem
+                                {...selectOptionProps}
+                                key={val}
+                                value={val}
+                            >
+                                {val}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                )}
+            />
         </FormControl>
     );
 };

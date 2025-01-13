@@ -46,7 +46,7 @@ export const transformToCommit = ({
 }: TCommitSchema): string => {
     let commit: string = title;
 
-    if (commitType) {
+    if (commitType && commitType != "none") {
         commit = `${commitType}: ${title}`;
     }
     if (description) {

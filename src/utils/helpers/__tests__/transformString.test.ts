@@ -66,6 +66,7 @@ describe("Transform string", () => {
                 transformToCommit({
                     title: commitTitle,
                     description: formated_description,
+                    commitType: "none",
                 }),
             ).toBe(commitTitle + "\n\n" + formated_description);
         });
@@ -74,6 +75,7 @@ describe("Transform string", () => {
             expect(
                 transformToCommit({
                     title: commitTitle,
+                    commitType: "none",
                 }),
             ).toBe(commitTitle);
 

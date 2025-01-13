@@ -6,21 +6,18 @@ import useFormattingForm from "../_hooks/use-formatting-form.ts";
 
 const FormattingForm = () => {
     const formattingProps = useFormattingForm();
-    const { register, isAnyError, onSubmit } = formattingProps;
+    const { control, isAnyError, onSubmit, reset } = formattingProps;
+
     return (
         <form className="app-container" onSubmit={onSubmit}>
             <fieldset className="title-container">
                 <SelectMenu
+                    control={control}
+                    name={"commitType"}
                     labelText={"Commit type"}
                     selectOptions={["none", ...FORMATTING_CONSTANTS.types]}
                     formControlProps={{ className: "commit-type-selector" }}
-                    selectProps={{
-                        label: "Conv. commit",
-                        defaultValue: "none",
-                        ...register("commitType"),
-                    }}
                 />
-
                 <TextField
                     {...useConstructInputProps({
                         commitPart: "title",
@@ -45,6 +42,14 @@ const FormattingForm = () => {
                 color="info"
             >
                 Copy formatted commit
+            </Button>
+            <Button
+                onClick={() => reset()}
+                type="button"
+                variant="outlined"
+                color="error"
+            >
+                Reset
             </Button>
         </form>
     );

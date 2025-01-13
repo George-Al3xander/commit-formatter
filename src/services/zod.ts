@@ -1,7 +1,6 @@
 import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
 import { TCommitType } from "@/types/models/commit.ts";
 import {
-    transformCommitType,
     transformDescription,
     transformTitle,
 } from "@/utils/helpers/transformString.ts";
@@ -17,7 +16,7 @@ const isTitleValid = ({
     commitType,
 }: {
     title: string;
-    commitType?: TCommitType | "none" | undefined;
+    commitType: TCommitType | "none";
 }): boolean => {
     const fullTitle =
         commitType && commitType != "none" ? `${commitType}: ${title}` : title;
@@ -35,11 +34,7 @@ export const CommitSchema = z
             .optional()
             .or(z.literal(""))
             .transform(transformDescription),
-        commitType: z
-            .enum(FORMATTING_CONSTANTS.types)
-            .optional()
-            .or(z.literal("none"))
-            .transform(transformCommitType),
+        commitType: z.enum(["none", ...FORMATTING_CONSTANTS.types]),
     })
     .refine(isTitleValid, {
         message: TITLE_LENGTH_ERR_MESSAGES.max,
