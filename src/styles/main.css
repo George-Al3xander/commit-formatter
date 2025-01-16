@@ -5,7 +5,7 @@
     --color-secondary: #1e3e62;
     --color-dark: #2b3137;
     --color-bg: #24292e;
-    --color-error: #AE3C43;
+    --color-error: #ae3c43;
 }
 
 body {
@@ -19,11 +19,10 @@ header {
     text-transform: uppercase;
     font-size: 1.5rem;
     font-weight: 700;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
 }
-
 
 .app-container {
     display: flex;
@@ -102,7 +101,6 @@ fieldset {
     .title-container {
         flex-direction: row;
         align-items: center;
-
     }
 
     .commit-type-selector {

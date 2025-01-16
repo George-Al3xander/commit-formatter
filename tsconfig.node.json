@@ -17,7 +17,7 @@
         "noUncheckedSideEffectImports": true,
         "paths": {
             "@/*": ["./src/*"]
-        },
+        }
     },
     "include": ["vite.config.ts"]
 }

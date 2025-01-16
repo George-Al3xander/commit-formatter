@@ -10,7 +10,7 @@ export default [
             react: {
                 version: "detect",
             },
-        }
+        },
     },
     { languageOptions: { globals: globals.browser } },
     pluginJs.configs.recommended,
