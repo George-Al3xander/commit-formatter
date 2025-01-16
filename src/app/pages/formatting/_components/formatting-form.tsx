@@ -14,6 +14,7 @@ const FormattingForm = () => {
                 <SelectMenu
                     control={control}
                     name={"commitType"}
+                    selectProps={{ label: "Conv. commit" }}
                     labelText={"Commit type"}
                     selectOptions={["none", ...FORMATTING_CONSTANTS.types]}
                     formControlProps={{ className: "commit-type-selector" }}
