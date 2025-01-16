@@ -11,13 +11,7 @@ export default defineConfig({
         port: 3000,
     },
     build: {
-        rollupOptions: {
-            input: {
-                app: "src/app/pages/index.html",
-            },
-            output: {
-                dir: "./dist",
-            },
-        },
+        outDir: "../../../dist",
+        emptyOutDir: true,
     },
 });
