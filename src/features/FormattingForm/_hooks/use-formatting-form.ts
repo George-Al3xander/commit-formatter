@@ -4,7 +4,7 @@ import { transformToCommit } from "@/utils/helpers/transformString";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-const useFormattingForm = () => {
+export const useFormattingForm = () => {
     const {
         register,
         handleSubmit,
@@ -35,5 +35,3 @@ const useFormattingForm = () => {
         isAnyError,
     };
 };
-
-export default useFormattingForm;

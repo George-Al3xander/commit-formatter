@@ -1,4 +1,4 @@
-import FormattingPage from "@/app/pages/formatting/page";
+import FormattingForm from "@/features/FormattingForm/FormattingForm";
 import { InstructionsModal } from "@/features/modals/InstructionsModal";
 import Providers from "@/providers/providers";
 import "@/styles/main.css";
@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
                         <InstructionsModal />
                     </Header>
                 }
-                content={<FormattingPage />}
+                content={<FormattingForm />}
             />
         </Providers>
     </StrictMode>,

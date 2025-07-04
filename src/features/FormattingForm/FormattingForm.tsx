@@ -1,8 +1,7 @@
-import { useConstructInputProps } from "@/app/pages/formatting/_hooks/use-construct-input-props";
 import { FORMATTING_CONSTANTS } from "@/configs/formatting";
 import { SelectMenu } from "@/ui/components/organisms/SelectMenu";
 import { Button, TextField } from "@mui/material";
-import useFormattingForm from "../_hooks/use-formatting-form";
+import { useConstructInputProps, useFormattingForm } from "./_hooks";
 
 const FormattingForm = () => {
     const formattingProps = useFormattingForm();
