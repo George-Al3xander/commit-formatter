@@ -5,22 +5,19 @@ import "@/styles/main.css";
 import "@/styles/reset.css";
 import { RepositoryLink } from "@/ui/components/molecules/RepositoryLink";
 import { Header } from "@/ui/components/organisms/Header";
-import { TemplateMainPage } from "@/ui/components/templates/TemplateMainPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <Providers>
-            <TemplateMainPage
-                header={
-                    <Header>
-                        <RepositoryLink />
-                        <InstructionsModal />
-                    </Header>
-                }
-                content={<FormattingForm />}
-            />
+            <Header>
+                <RepositoryLink />
+                <InstructionsModal />
+            </Header>
+            <main>
+                <FormattingForm />
+            </main>
         </Providers>
     </StrictMode>,
 );
