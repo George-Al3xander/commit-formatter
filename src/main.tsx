@@ -1,3 +1,4 @@
+import FormattingPage from "@/app/pages/formatting/page";
 import { InstructionsModal } from "@/features/modals/InstructionsModal";
 import Providers from "@/providers/providers";
 import "@/styles/main.css";
@@ -7,7 +8,6 @@ import { Header } from "@/ui/components/organisms/Header";
 import { TemplateMainPage } from "@/ui/components/templates/TemplateMainPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import FormattingPage from "./formatting/page";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
