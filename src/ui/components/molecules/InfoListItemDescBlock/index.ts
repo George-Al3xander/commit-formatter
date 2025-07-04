@@ -1,1 +1,1 @@
-export { InfoListItemDescBlock } from "./InfoListItemDescBlock.tsx";
+export { InfoListItemDescBlock } from "./InfoListItemDescBlock";

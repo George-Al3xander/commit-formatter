@@ -1,5 +1,5 @@
-import { TCommitSchema } from "@/services/zod.ts";
-import { capitalizeString } from "@/utils/helpers/formatString.ts";
+import { TCommitSchema } from "@/services/zod";
+import { capitalizeString } from "@/utils/helpers/formatString";
 import { FieldErrors, UseFormRegister } from "react-hook-form";
 
 type CommitPart = Exclude<keyof TCommitSchema, "commitType">;

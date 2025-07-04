@@ -1,4 +1,4 @@
-import { TCommitType } from "@/types/models/commit.ts";
+import { TCommitType } from "@/types/models/commit";
 
 export const FORMATTING_CONSTANTS: Readonly<{
     title_max_length: number;

@@ -1,4 +1,4 @@
-import { COPY_MESSAGES } from "@/utils/consts.ts";
+import { COPY_MESSAGES } from "@/utils/consts";
 import toast from "react-hot-toast";
 
 export const copyToClipboard = async (text: string) => {

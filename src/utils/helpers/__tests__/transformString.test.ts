@@ -1,15 +1,12 @@
-import {
-    commit_description,
-    formated_description,
-} from "@/mocks/mock-commit.ts";
-import { TCommitType } from "@/types/models/commit.ts";
+import { commit_description, formated_description } from "@/mocks/mock-commit";
+import { TCommitType } from "@/types/models/commit";
 import {
     transformCommitType,
     transformDescription,
     transformTitle,
     transformToAbbreviation,
     transformToCommit,
-} from "@/utils/helpers/transformString.ts";
+} from "@/utils/helpers/transformString";
 
 describe("Transform string", () => {
     describe("title", () => {

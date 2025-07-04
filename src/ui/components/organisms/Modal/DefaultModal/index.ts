@@ -1,1 +1,1 @@
-export { DefaultModal } from "./DefaultModal.tsx";
+export { DefaultModal } from "./DefaultModal";

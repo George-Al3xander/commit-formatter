@@ -1,7 +1,7 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
-import { TCommitSchema } from "@/services/zod.ts";
-import { TCommitType } from "@/types/models/commit.ts";
-import { formatLines } from "@/utils/helpers/formatString.ts";
+import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { TCommitSchema } from "@/services/zod";
+import { TCommitType } from "@/types/models/commit";
+import { formatLines } from "@/utils/helpers/formatString";
 
 export const transformToAbbreviation = (str: string): string => {
     const text = str.replace(/\s\s+/g, " ");

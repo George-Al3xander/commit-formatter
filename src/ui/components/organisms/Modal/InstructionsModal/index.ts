@@ -1,1 +1,1 @@
-export { InstructionsModal } from "./InstructionsModal.tsx";
+export { InstructionsModal } from "./InstructionsModal";

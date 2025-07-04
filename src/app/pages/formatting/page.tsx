@@ -1,4 +1,4 @@
-import FormattingForm from "./_components/formatting-form.tsx";
+import FormattingForm from "./_components/formatting-form";
 
 function FormattingPage() {
     return <FormattingForm />;

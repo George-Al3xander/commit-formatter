@@ -1,5 +1,5 @@
-import { WEBSITE_TITLE } from "@/utils/consts.ts";
-import { transformToAbbreviation } from "@/utils/helpers/transformString.ts";
+import { WEBSITE_TITLE } from "@/utils/consts";
+import { transformToAbbreviation } from "@/utils/helpers/transformString";
 
 export const WebsiteLogo = () => {
     return (

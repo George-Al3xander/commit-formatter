@@ -1,1 +1,1 @@
-export { InfoListItemTitle } from "./InfoListItemTitle.tsx";
+export { InfoListItemTitle } from "./InfoListItemTitle";

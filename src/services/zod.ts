@@ -1,9 +1,9 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
-import { TCommitType } from "@/types/models/commit.ts";
+import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { TCommitType } from "@/types/models/commit";
 import {
     transformDescription,
     transformTitle,
-} from "@/utils/helpers/transformString.ts";
+} from "@/utils/helpers/transformString";
 import { z } from "zod";
 
 const TITLE_LENGTH_ERR_MESSAGES = {

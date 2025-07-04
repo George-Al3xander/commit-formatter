@@ -1,4 +1,4 @@
-import { MuiProvider } from "@/providers/MuiProvider.tsx";
+import { MuiProvider } from "@/providers/MuiProvider";
 import { ReactNode } from "react";
 import { Toaster } from "react-hot-toast";
 

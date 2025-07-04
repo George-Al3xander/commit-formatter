@@ -1,1 +1,1 @@
-export { InfoList } from "./InfoList.tsx";
+export { InfoList } from "./InfoList";

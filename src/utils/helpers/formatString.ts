@@ -1,4 +1,4 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
+import { FORMATTING_CONSTANTS } from "@/configs/formatting";
 
 export const formatLines = (words: string[]) => {
     const lines: string[] = [];

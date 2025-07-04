@@ -1,4 +1,4 @@
-import Providers from "@/providers/providers.tsx";
+import Providers from "@/providers/providers";
 import "@/styles/main.css";
 import "@/styles/reset.css";
 import { RepositoryLink } from "@/ui/components/molecules/RepositoryLink";
@@ -7,7 +7,7 @@ import { InstructionsModal } from "@/ui/components/organisms/Modal/InstructionsM
 import { TemplateMainPage } from "@/ui/components/templates/TemplateMainPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import FormattingPage from "./formatting/page.tsx";
+import FormattingPage from "./formatting/page";
 
 createRoot(document.getElementById("root")!).render(
     <StrictMode>

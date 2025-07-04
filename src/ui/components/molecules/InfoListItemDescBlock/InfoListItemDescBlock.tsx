@@ -1,4 +1,4 @@
-import { TInfoItemDescription } from "@/types/models/info-items.ts";
+import { TInfoItemDescription } from "@/types/models/info-items";
 import { InfoListItemDescription } from "@/ui/components/atoms/InfoListItemDescription";
 import { List } from "@mui/material";
 import { FC } from "react";

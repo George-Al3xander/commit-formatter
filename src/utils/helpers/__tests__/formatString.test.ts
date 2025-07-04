@@ -1,9 +1,6 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting.ts";
-import {
-    commit_description,
-    formated_description,
-} from "@/mocks/mock-commit.ts";
-import { capitalizeString, formatLines } from "@/utils/helpers/formatString.ts";
+import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { commit_description, formated_description } from "@/mocks/mock-commit";
+import { capitalizeString, formatLines } from "@/utils/helpers/formatString";
 
 describe("Format string", () => {
     it("should capitalize string", () => {

@@ -1,4 +1,4 @@
-import { TInfoItemDescription } from "@/types/models/info-items.ts";
+import { TInfoItemDescription } from "@/types/models/info-items";
 
 export const INSTRUCTIONS_TITLE = "Instructions for Formatting:";
 

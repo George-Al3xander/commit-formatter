@@ -1,7 +1,7 @@
 {
     "files": [],
     "compilerOptions": {
-        "allowImportingTsExtensions": true
+        "allowImportingTsExtensions": false
     },
     "references": [
         { "path": "./tsconfig.app.json" },

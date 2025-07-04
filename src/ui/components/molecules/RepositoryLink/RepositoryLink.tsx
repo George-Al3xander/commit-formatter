@@ -1,6 +1,6 @@
 import { IconButton } from "@/ui/components/molecules/IconButton";
 import { GitHubIcon } from "@/ui/icons";
-import { GITHUB_REPO_LINK } from "@/utils/consts.ts";
+import { GITHUB_REPO_LINK } from "@/utils/consts";
 import { Link } from "@mui/material";
 
 export const RepositoryLink = () => {

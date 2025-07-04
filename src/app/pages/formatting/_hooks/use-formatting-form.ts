@@ -1,6 +1,6 @@
-import { CommitSchema, TCommitSchema } from "@/services/zod.ts";
-import { copyToClipboard } from "@/utils/helpers/clipboard.ts";
-import { transformToCommit } from "@/utils/helpers/transformString.ts";
+import { CommitSchema, TCommitSchema } from "@/services/zod";
+import { copyToClipboard } from "@/utils/helpers/clipboard";
+import { transformToCommit } from "@/utils/helpers/transformString";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
