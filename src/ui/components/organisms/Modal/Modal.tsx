@@ -7,7 +7,7 @@ type Props = PropsWithChildren<{
     triggerProps: ComponentProps<typeof IconButton>;
 }>;
 
-export const DefaultModal: FC<Props> = ({ triggerProps, children }) => {
+export const Modal: FC<Props> = ({ triggerProps, children }) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -15,12 +15,7 @@ export const DefaultModal: FC<Props> = ({ triggerProps, children }) => {
     return (
         <div>
             <IconButton {...triggerProps} onClick={handleOpen} />
-            <ModalMUI
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="info-modal-title"
-                aria-describedby="info-modal-description"
-            >
+            <ModalMUI open={open} onClose={handleClose}>
                 <Box
                     sx={{
                         position: "absolute",

@@ -1,9 +1,9 @@
+import { InstructionsModal } from "@/features/modals/InstructionsModal";
 import Providers from "@/providers/providers";
 import "@/styles/main.css";
 import "@/styles/reset.css";
 import { RepositoryLink } from "@/ui/components/molecules/RepositoryLink";
 import { Header } from "@/ui/components/organisms/Header";
-import { InstructionsModal } from "@/ui/components/organisms/Modal/InstructionsModal";
 import { TemplateMainPage } from "@/ui/components/templates/TemplateMainPage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
