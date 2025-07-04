@@ -1,4 +1,4 @@
-import { WebsiteLogo } from "@/ui/components/molecules/WebsiteLogo";
+import { WebsiteLogo } from "@/features/WebsiteLogo";
 import Box from "@mui/material/Box";
 import { ComponentProps, FC, PropsWithChildren } from "react";
 

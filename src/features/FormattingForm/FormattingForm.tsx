@@ -3,7 +3,7 @@ import { SelectMenu } from "@/ui/components/organisms/SelectMenu";
 import { Button, TextField } from "@mui/material";
 import { useConstructInputProps, useFormattingForm } from "./_hooks";
 
-const FormattingForm = () => {
+export const FormattingForm = () => {
     const formattingProps = useFormattingForm();
     const { control, isAnyError, onSubmit, reset } = formattingProps;
 
@@ -54,5 +54,3 @@ const FormattingForm = () => {
         </form>
     );
 };
-
-export default FormattingForm;
