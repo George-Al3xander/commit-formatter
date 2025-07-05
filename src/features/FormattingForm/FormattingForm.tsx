@@ -1,4 +1,4 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { COMMIT_TYPES } from "@/data/commit-rules";
 import { SelectMenu } from "@/ui/components/organisms/SelectMenu";
 import { Button, TextField } from "@mui/material";
 import { useConstructInputProps, useFormattingForm } from "./_hooks";
@@ -15,7 +15,7 @@ export const FormattingForm = () => {
                     name={"commitType"}
                     selectProps={{ label: "Conv. commit" }}
                     labelText={"Commit type"}
-                    selectOptions={["none", ...FORMATTING_CONSTANTS.types]}
+                    selectOptions={["none", ...COMMIT_TYPES]}
                     formControlProps={{ className: "commit-type-selector" }}
                 />
                 <TextField

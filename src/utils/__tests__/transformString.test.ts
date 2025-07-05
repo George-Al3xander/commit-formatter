@@ -1,12 +1,14 @@
-import { commit_description, formated_description } from "@/mocks/mock-commit";
-import { TCommitType } from "@/types/models/commit";
+import {
+    commit_description,
+    formated_description,
+} from "@/data/mocks/mock-commit";
 import {
     transformCommitType,
     transformDescription,
     transformTitle,
     transformToAbbreviation,
     transformToCommit,
-} from "@/utils/helpers/transformString";
+} from "@/utils/transformString";
 
 describe("Transform string", () => {
     describe("title", () => {
@@ -18,8 +20,6 @@ describe("Transform string", () => {
             ).toBe("i'm uppercase and have a lot of spaces!"));
         it("should transform commit type", () => {
             expect(transformCommitType("ci")).toBe("ci");
-            //eslint-disable-next-line
-            //@ts-ignore
             expect(transformCommitType("wrong")).toBe(undefined);
             expect(transformCommitType("none")).toBe(undefined);
             expect(transformCommitType(undefined)).toBe(undefined);
@@ -45,7 +45,7 @@ describe("Transform string", () => {
 
     describe("commit", () => {
         const commitTitle = "title";
-        const commitType: TCommitType = "feat";
+        const commitType = "feat";
         it("should transform to commit: full commit", () => {
             expect(
                 transformToCommit({

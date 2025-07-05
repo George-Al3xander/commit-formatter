@@ -1,12 +1,13 @@
-import { WEBSITE_TITLE } from "@/utils/consts";
-import { transformToAbbreviation } from "@/utils/helpers/transformString";
+import { transformToAbbreviation } from "@/utils/transformString";
+
+const WEBSITE_NAME = "Commit Formatter";
 
 export const WebsiteLogo = () => {
     return (
         <h1 style={{ fontSize: "24px" }}>
-            <span className="title-desktop">{WEBSITE_TITLE}</span>
+            <span className="title-desktop">{WEBSITE_NAME}</span>
             <span className="title-mobile">
-                {transformToAbbreviation(WEBSITE_TITLE)}
+                {transformToAbbreviation(WEBSITE_NAME)}
             </span>
         </h1>
     );

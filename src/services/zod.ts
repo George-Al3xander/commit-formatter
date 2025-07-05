@@ -1,14 +1,10 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting";
-import { TCommitType } from "@/types/models/commit";
-import {
-    transformDescription,
-    transformTitle,
-} from "@/utils/helpers/transformString";
+import { COMMIT_TYPES, TITLE_MAX_LENGTH } from "@/data/commit-rules";
+import { transformDescription, transformTitle } from "@/utils/transformString";
 import { z } from "zod";
 
 const TITLE_LENGTH_ERR_MESSAGES = {
     min: "Title is required and must be at least 1 character long.",
-    max: `Title must be ${FORMATTING_CONSTANTS.title_max_length} characters or fewer. If a commit type is selected, this includes the commit type, colon, and space (e.g., 'feat: add new feature').`,
+    max: `Title must be ${TITLE_MAX_LENGTH} characters or fewer. If a commit type is selected, this includes the commit type, colon, and space (e.g., 'feat: add new feature').`,
 };
 
 const isTitleValid = ({
@@ -16,12 +12,12 @@ const isTitleValid = ({
     commitType,
 }: {
     title: string;
-    commitType: TCommitType | "none";
+    commitType: string;
 }): boolean => {
     const fullTitle =
         commitType && commitType != "none" ? `${commitType}: ${title}` : title;
 
-    return fullTitle.length <= FORMATTING_CONSTANTS.title_max_length;
+    return fullTitle.length <= TITLE_MAX_LENGTH;
 };
 export const CommitSchema = z
     .object({
@@ -34,7 +30,7 @@ export const CommitSchema = z
             .optional()
             .or(z.literal(""))
             .transform(transformDescription),
-        commitType: z.enum(["none", ...FORMATTING_CONSTANTS.types]),
+        commitType: z.enum(["none", ...COMMIT_TYPES]),
     })
     .refine(isTitleValid, {
         message: TITLE_LENGTH_ERR_MESSAGES.max,

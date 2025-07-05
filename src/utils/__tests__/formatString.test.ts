@@ -1,6 +1,9 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting";
-import { commit_description, formated_description } from "@/mocks/mock-commit";
-import { capitalizeString, formatLines } from "@/utils/helpers/formatString";
+import { DESCRIPTION_MAX_LENGTH } from "@/data/commit-rules";
+import {
+    commit_description,
+    formated_description,
+} from "@/data/mocks/mock-commit";
+import { capitalizeString, formatLines } from "@/utils/formatString";
 
 describe("Format string", () => {
     it("should capitalize string", () => {
@@ -20,9 +23,7 @@ describe("Format lines", () => {
     it("should format line to be less that required length", () => {
         const lines = formatLines(commit_description.split(" "));
         lines.forEach((line) => {
-            expect(line.length).toBeLessThanOrEqual(
-                FORMATTING_CONSTANTS.description_max_length,
-            );
+            expect(line.length).toBeLessThanOrEqual(DESCRIPTION_MAX_LENGTH);
         });
     });
 });

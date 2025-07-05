@@ -1,4 +1,4 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { DESCRIPTION_MAX_LENGTH } from "@/data/commit-rules";
 
 export const formatLines = (words: string[]) => {
     const lines: string[] = [];
@@ -6,7 +6,7 @@ export const formatLines = (words: string[]) => {
 
     words.forEach((word) => {
         const lineConcat = (currentLine + " " + word).trim();
-        if (lineConcat.length <= FORMATTING_CONSTANTS.description_max_length) {
+        if (lineConcat.length <= DESCRIPTION_MAX_LENGTH) {
             currentLine = lineConcat;
         } else {
             lines.push(currentLine);

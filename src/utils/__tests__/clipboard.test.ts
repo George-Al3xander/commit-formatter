@@ -1,4 +1,4 @@
-import { copyToClipboard } from "@/utils/helpers/clipboard";
+import { copyToClipboard } from "@/utils/clipboard";
 import toast from "react-hot-toast";
 
 describe("copy to clipboard", () => {

@@ -1,7 +1,8 @@
 import { IconButton } from "@/ui/components/molecules/IconButton";
 import { GitHubIcon } from "@/ui/icons";
-import { GITHUB_REPO_LINK } from "@/utils/consts";
 import { Link } from "@mui/material";
+
+const GITHUB_REPO_LINK = "https://github.com/George-Al3xander/commit-formatter";
 
 export const RepositoryLink = () => {
     return (

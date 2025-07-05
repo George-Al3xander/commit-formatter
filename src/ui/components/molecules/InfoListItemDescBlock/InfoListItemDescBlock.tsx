@@ -1,10 +1,9 @@
-import { TInfoItemDescription } from "@/types/models/info-items";
 import { InfoListItemDescription } from "@/ui/components/atoms/InfoListItemDescription";
 import { List } from "@mui/material";
 import { FC } from "react";
 
 type Props = {
-    content: TInfoItemDescription;
+    content: string | { beforeBoldText: string; details: string }[];
 };
 
 export const InfoListItemDescBlock: FC<Props> = ({ content }) => {

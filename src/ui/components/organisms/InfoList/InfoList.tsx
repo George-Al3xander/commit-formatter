@@ -1,4 +1,3 @@
-import { TInfoItem } from "@/types/models/info-items";
 import { InfoListItem } from "@/ui/components/molecules/InfoListItem";
 import { List } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -7,7 +6,15 @@ import { FC } from "react";
 
 type Props = {
     title: string;
-    items: TInfoItem[];
+    items: {
+        title: string;
+        description:
+            | string
+            | {
+                  beforeBoldText: string;
+                  details: string;
+              }[];
+    }[];
 };
 
 export const InfoList: FC<Props> = ({ title, items }) => {

@@ -1,7 +1,6 @@
-import { FORMATTING_CONSTANTS } from "@/configs/formatting";
+import { COMMIT_TYPES } from "@/data/commit-rules";
 import { TCommitSchema } from "@/services/zod";
-import { TCommitType } from "@/types/models/commit";
-import { formatLines } from "@/utils/helpers/formatString";
+import { formatLines } from "@/utils/formatString";
 
 export const transformToAbbreviation = (str: string): string => {
     const text = str.replace(/\s\s+/g, " ");
@@ -30,13 +29,9 @@ export const transformTitle = (title: string): string => {
 };
 
 export const transformCommitType = (
-    commitType: TCommitType | "none" | undefined,
-): TCommitType | undefined => {
-    if (
-        commitType &&
-        (FORMATTING_CONSTANTS.types as unknown as string[]).includes(commitType)
-    )
-        return commitType as TCommitType;
+    commitType: string | undefined,
+): string | undefined => {
+    if (commitType && COMMIT_TYPES.includes(commitType)) return commitType;
 };
 
 export const transformToCommit = ({
