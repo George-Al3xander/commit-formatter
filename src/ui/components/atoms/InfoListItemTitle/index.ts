@@ -1,1 +1,0 @@
-export { InfoListItemTitle } from "./InfoListItemTitle";

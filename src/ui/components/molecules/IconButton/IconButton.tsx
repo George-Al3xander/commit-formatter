@@ -1,17 +1,19 @@
 import { IconButton as IconButtonMUI, SvgIcon } from "@mui/material";
 
-import { FC, MouseEvent } from "react";
+import { ComponentProps, FC } from "react";
 
 type Props = {
     srText: string;
     icon: typeof SvgIcon;
-    onClick?: (
-        e: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>,
-    ) => void;
-};
+} & ComponentProps<typeof IconButtonMUI>;
 
-export const IconButton: FC<Props> = ({ srText, icon: Icon, onClick }) => (
-    <IconButtonMUI onClick={onClick}>
+export const IconButton: FC<Props> = ({
+    srText,
+    icon: Icon,
+    onClick,
+    ...props
+}) => (
+    <IconButtonMUI {...props} onClick={onClick}>
         <Icon />
         <span className="sr-only">{srText}</span>
     </IconButtonMUI>

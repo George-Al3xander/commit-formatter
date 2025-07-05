@@ -1,1 +1,0 @@
-export { InfoListItemDescBlock } from "./InfoListItemDescBlock";

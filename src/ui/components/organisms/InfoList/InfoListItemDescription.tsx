@@ -2,29 +2,26 @@ import Typography, { TypographyProps } from "@mui/material/Typography";
 import { FC } from "react";
 
 type Props = {
-    description: string;
-    beforeBoldText?: string;
+    label?: string;
 } & TypographyProps;
 
 export const InfoListItemDescription: FC<Props> = ({
-    description,
-    beforeBoldText,
+    children,
+    label,
     ...props
 }) => {
     return (
-        // eslint-disable-next-line
-        // @ts-ignore
-        <Typography {...props} variant="subtitle1" component="p">
-            {beforeBoldText && (
+        <Typography variant="subtitle1" component="p" {...props}>
+            {label && (
                 <span
                     style={{
                         fontWeight: 800,
                     }}
                 >
-                    {beforeBoldText}:{" "}
+                    {`${label}: `}
                 </span>
             )}
-            {description}
+            {children}
         </Typography>
     );
 };

@@ -2,9 +2,9 @@ import { InfoList } from "@/ui/components/organisms/InfoList";
 import { Modal } from "@/ui/components/organisms/Modal";
 import { InfoIcon } from "@/ui/icons";
 
-const title = "Instructions for Formatting:";
+const LIST_TITLE = "Instructions for Formatting:";
 
-const items = [
+const LIST_ITEMS = [
     {
         title: "Select Commit Type (Optional)",
         description:
@@ -14,12 +14,12 @@ const items = [
         title: "Enter Title",
         description: [
             {
-                beforeBoldText: "With Commit Type",
+                label: "With Commit Type",
                 details:
                     "Keep the title within 50 characters, including the type, a colon, and a space (e.g., 'docs: Update README').",
             },
             {
-                beforeBoldText: "Without Commit Type",
+                label: "Without Commit Type",
                 details: "Keep the title within 50 characters alone.",
             },
         ],
@@ -38,6 +38,20 @@ const items = [
 
 export const InstructionsModal = () => (
     <Modal triggerProps={{ icon: InfoIcon, srText: "Open instruction" }}>
-        <InfoList title={title} items={items} />
+        <InfoList.ListTitle>{LIST_TITLE}</InfoList.ListTitle>
+        <InfoList.Root>
+            {LIST_ITEMS.map(({ title, description }) => (
+                <InfoList.ItemRoot key={title + description}>
+                    <InfoList.ItemTitle>{title}</InfoList.ItemTitle>
+                    {Array.isArray(description) ? (
+                        <InfoList.ItemDescriptionList items={description} />
+                    ) : (
+                        <InfoList.ItemDescription>
+                            {description}
+                        </InfoList.ItemDescription>
+                    )}
+                </InfoList.ItemRoot>
+            ))}
+        </InfoList.Root>
     </Modal>
 );
